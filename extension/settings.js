@@ -1,15 +1,21 @@
-const input = document.getElementById("backendUrl");
-const saveBtn = document.getElementById("saveBtn");
+const backendUrlInput = document.getElementById("backendUrl");
+const officeSecretInput = document.getElementById("officeSecret");
+const saveBtn  = document.getElementById("saveBtn");
 const savedMsg = document.getElementById("savedMsg");
 
-// Load saved value
-chrome.storage.sync.get({ backendUrl: "http://localhost:3000" }, (data) => {
-  input.value = data.backendUrl;
+const DEFAULT_BACKEND_URL = "http://localhost:3000";
+
+// Load saved values
+chrome.storage.sync.get({ backendUrl: DEFAULT_BACKEND_URL, officeSecret: "" }, (data) => {
+  backendUrlInput.value  = data.backendUrl;
+  officeSecretInput.value = data.officeSecret;
 });
 
 saveBtn.addEventListener("click", () => {
-  const url = input.value.trim().replace(/\/$/, ""); // remove trailing slash
-  chrome.storage.sync.set({ backendUrl: url }, () => {
+  const url    = backendUrlInput.value.trim().replace(/\/$/, "");
+  const secret = officeSecretInput.value.trim();
+
+  chrome.storage.sync.set({ backendUrl: url, officeSecret: secret }, () => {
     savedMsg.classList.add("show");
     setTimeout(() => savedMsg.classList.remove("show"), 2000);
   });

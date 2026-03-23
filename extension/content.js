@@ -128,7 +128,7 @@
 
       const res = await fetch(`${backendUrl}/humanize`, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: { "Content-Type": "application/json", "x-office-secret": config.officeSecret || "" },
         body: JSON.stringify({ text: selectedText }),
       });
 
@@ -199,7 +199,7 @@
   // ── Config ─────────────────────────────────────────────────────────────────
   function getConfig() {
     return new Promise((resolve) =>
-      chrome.storage.sync.get({ backendUrl: "http://localhost:3000" }, resolve)
+      chrome.storage.sync.get({ backendUrl: "http://localhost:3000", officeSecret: "" }, resolve)
     );
   }
 })();
