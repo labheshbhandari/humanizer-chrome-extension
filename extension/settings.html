@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Humanizer Settings</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      width: 300px;
+      background: #0f0f1a;
+      color: #e8e0ff;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      padding: 20px;
+    }
+
+    .header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 20px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid #2a2a4a;
+    }
+
+    .logo {
+      width: 32px;
+      height: 32px;
+      background: linear-gradient(135deg, #6c47ff, #a78bfa);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+    }
+
+    h1 {
+      font-size: 16px;
+      font-weight: 700;
+      color: #e8e0ff;
+    }
+
+    .subtitle {
+      font-size: 11px;
+      color: #6c6c9a;
+    }
+
+    label {
+      display: block;
+      font-size: 12px;
+      font-weight: 600;
+      color: #a78bfa;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 6px;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 9px 12px;
+      background: #1a1a2e;
+      border: 1px solid #2a2a4a;
+      border-radius: 8px;
+      color: #e8e0ff;
+      font-size: 13px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    input[type="text"]:focus {
+      border-color: #6c47ff;
+    }
+
+    .hint {
+      font-size: 11px;
+      color: #6c6c9a;
+      margin-top: 5px;
+    }
+
+    button {
+      width: 100%;
+      margin-top: 16px;
+      padding: 10px;
+      background: linear-gradient(135deg, #6c47ff, #8b5cf6);
+      border: none;
+      border-radius: 8px;
+      color: #fff;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: opacity 0.2s, transform 0.1s;
+    }
+
+    button:hover { opacity: 0.9; transform: translateY(-1px); }
+    button:active { transform: translateY(0); }
+
+    .saved-msg {
+      margin-top: 10px;
+      text-align: center;
+      font-size: 12px;
+      color: #4ade80;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .saved-msg.show { opacity: 1; }
+
+    .how-to {
+      margin-top: 18px;
+      padding: 12px;
+      background: #1a1a2e;
+      border-radius: 8px;
+      border: 1px solid #2a2a4a;
+    }
+
+    .how-to h2 {
+      font-size: 12px;
+      font-weight: 700;
+      color: #a78bfa;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .how-to ol {
+      padding-left: 16px;
+      color: #9090b8;
+      font-size: 12px;
+      line-height: 1.7;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <div class="logo">✦</div>
+    <div>
+      <h1>Humanize AI Text</h1>
+      <div class="subtitle">Powered by Claude</div>
+    </div>
+  </div>
+
+  <div style="margin-bottom: 14px;">
+    <label for="backendUrl">Backend URL</label>
+    <input type="text" id="backendUrl" placeholder="http://localhost:3000" />
+    <div class="hint">Your team's backend server address.</div>
+  </div>
+
+  <button id="saveBtn">Save Settings</button>
+  <div class="saved-msg" id="savedMsg">✓ Saved!</div>
+
+  <div class="how-to">
+    <h2>How to use</h2>
+    <ol>
+      <li>Open Gmail, Notion, or any page</li>
+      <li>Type or paste text into any text field</li>
+      <li>Select the AI-generated text</li>
+      <li>Click the <strong>✦ Humanize</strong> button</li>
+      <li>Text is replaced automatically</li>
+    </ol>
+  </div>
+
+  <script src="settings.js"></script>
+</body>
+</html>
