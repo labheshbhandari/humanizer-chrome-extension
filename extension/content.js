@@ -124,7 +124,7 @@
 
     try {
       const config = await getConfig();
-      const backendUrl = (config.backendUrl || "http://localhost:3000").replace(/\/$/, "");
+      const backendUrl = (config.backendUrl || "https://humanizer-chrome-extension.onrender.com").replace(/\/$/, "");
 
       const res = await fetch(`${backendUrl}/humanize`, {
         method: "POST",
@@ -199,7 +199,7 @@
   // ── Config ─────────────────────────────────────────────────────────────────
   function getConfig() {
     return new Promise((resolve) =>
-      chrome.storage.sync.get({ backendUrl: "http://localhost:3000", officeSecret: "" }, resolve)
+      chrome.storage.sync.get({ backendUrl: "https://humanizer-chrome-extension.onrender.com", officeSecret: "" }, resolve)
     );
   }
 })();

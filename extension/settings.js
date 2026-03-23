@@ -3,7 +3,7 @@ const officeSecretInput = document.getElementById("officeSecret");
 const saveBtn  = document.getElementById("saveBtn");
 const savedMsg = document.getElementById("savedMsg");
 
-const DEFAULT_BACKEND_URL = "http://localhost:3000";
+const DEFAULT_BACKEND_URL = "https://humanizer-chrome-extension.onrender.com";
 
 // Load saved values
 chrome.storage.sync.get({ backendUrl: DEFAULT_BACKEND_URL, officeSecret: "" }, (data) => {
